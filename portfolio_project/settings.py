@@ -131,3 +131,14 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'guruprasadks2003@gmail.com'
 EMAIL_HOST_PASSWORD = 'Guru@272003@ABCD'
+
+import os
+
+ALLOWED_HOSTS = ['my-portfolio.onrender.com']
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # keep your other middleware
+]

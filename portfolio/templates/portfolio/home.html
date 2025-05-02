@@ -1,5 +1,4 @@
 {% load static %}
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +9,6 @@
   <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -64,16 +62,10 @@
     .card:hover {
       transform: scale(1.02);
     }
-    .project-img  {
+    .project-img, .project-img1 {
       border-radius: 8px 8px 0 0;
       height: 180px;
-      object-fit: fill;
-      width: 100%;
-    }
-    .project-img1 {
-      border-radius: 8px 8px 0 0;
-      height: 180px;
-      object-fit: fill;
+      object-fit: cover;
       width: 100%;
     }
     .img-fluid:hover {
@@ -82,9 +74,10 @@
     }
     .footer {
       background: #ececec;
-      padding: 30px 0;
+      padding: 30px;
       font-size: 0.9rem;
       color: #444;
+      text-align: center;
     }
     .footer a {
       color: #004d99;
@@ -96,6 +89,21 @@
     .btn-outline-dark i {
       margin-right: 5px;
     }
+    form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    }
+    form .form-label {
+      font-weight: 600;
+      color: #333;
+    }
+    form .form-control {
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
     form .form-control:focus {
       border-color: #004d99;
       box-shadow: 0 0 0 0.2rem rgba(0,77,153,0.2);
@@ -103,15 +111,17 @@
     .btn-primary {
       background-color: #004d99;
       border-color: #004d99;
+      font-weight: 600;
     }
     .btn-primary:hover {
       background-color: #003366;
       border-color: #003366;
     }
+    
   </style>
 </head>
 <body>
-<!-- Remaining content is unchanged and will retain improved structure and logic from earlier -->
+<!-- Your entire existing HTML content remains unchanged, except the contact section and footer, which now follow the enhanced styles above. -->
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg fixed-top">
@@ -245,7 +255,7 @@
           <div class="card-body">
             <h5 class="card-title">Portfolio Website</h5>
             <p class="card-text">Designed and developed a responsive personal portfolio website using Django for the backend and Bootstrap for the frontend. The site showcases projects, skills, and contact information with clean navigation, dynamic content rendering, and mobile-friendly design.</p>
-            <a href="https://github.com/yourusername/project-repo" target="_blank" class="btn btn-sm btn-outline-dark mt-2">
+            <a href="https://github.com/Guruprasad2003-27/my-portfolio" target="_blank" class="btn btn-sm btn-outline-dark mt-2">
               <i class="fab fa-github"></i> GitHub
             </a>
             
@@ -280,9 +290,6 @@
             <input type="text" class="form-control" id="name" placeholder="Your Name">
           </div>
           <div class="mb-3">
-            <form method="POST">
-              {% csrf_token %}
-              {{ form.as_p }}
             <label for="email" class="form-label">Email</label>
             <input type="email" class="form-control" id="email" placeholder="your@example.com">
           </div>
@@ -292,9 +299,6 @@
           </div>
           <button type="submit" class="btn btn-primary">Send Message</button>
         </form>
-        {% if success %}
-          <div class="alert alert-success mt-3">Your message has been sent successfully!</div>
-        {% endif %}
       </div>
     </div>
   </div>
@@ -323,5 +327,17 @@
 <script>
   AOS.init({ duration: 1000, once: true });
 </script>
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll("section, .card").forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
