@@ -1,0 +1,48 @@
+/* portfolio/static/portfolio/css/style.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #343a40;
+    padding-top: 60px; /* space for fixed navbar */
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+.hero {
+    background: linear-gradient(to right, #007bff, #0056b3);
+    color: white;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+ul.list-inline li {
+    font-size: 1rem;
+}
+
+.card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+footer {
+    font-size: 0.9rem;
+}
+
+a {
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
